@@ -1,4 +1,3 @@
-// paused at part 5
 var colorsList = generateRandomColor(6);
 var correctColor = pickColor();
 var correctColorDisplay = document.getElementById("correct-color")
