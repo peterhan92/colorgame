@@ -1,3 +1,4 @@
+// paused at part 5
 var colorsList = generateRandomColor(6);
 var correctColor = pickColor();
 var correctColorDisplay = document.getElementById("correct-color")
@@ -7,7 +8,7 @@ var h1 = document.querySelector("h1");
 
 correctColorDisplay.textContent = correctColor;
 
-for (var i = 0; i < colorsList.length; i++) {
+for (var i = 0; i < squares.length; i++) {
 	squares[i].style.background = colorsList[i];
 
 	squares[i].addEventListener("click", function() {
