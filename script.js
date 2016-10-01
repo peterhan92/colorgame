@@ -7,13 +7,13 @@ var colorsList = [
 	"rgb(0, 0, 255)",
 	"rgb(255, 0, 255)"
 ]
-var correctColor = colorsList[3];
+var correctColor = randomColor();
 var CorrectColorDisplay = document.getElementById("correct-color")
 var squares = document.querySelectorAll(".square");
 var messageDisplay = document.querySelector("#message");
 
 CorrectColorDisplay.textContent = correctColor;
-for (var i = 0; i <= squares.length; i++) {
+for (var i = 0; i < squares.length; i++) {
 	squares[i].style.background = colorsList[i];
 
 	squares[i].addEventListener("click", function() {
@@ -32,6 +32,10 @@ function changeColor(color) {
 	for (var i = 0; i < squares.length; i++) {
 		squares[i].style.background = color
 	};
-	
+}
+
+function randomColor() {
+	var random = Math.floor(Math.random() * colorsList.length);
+	return colorsList[random];
 }
 
