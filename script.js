@@ -1,4 +1,4 @@
-// hard coding colors
+// hard coding colors for now
 var colorsList = [
 	"rgb(255, 0, 0)",
 	"rgb(255, 255, 0)",
@@ -9,19 +9,29 @@ var colorsList = [
 ]
 var correctColor = colorsList[3];
 var CorrectColorDisplay = document.getElementById("correct-color")
-var square = document.querySelectorAll(".square");
+var squares = document.querySelectorAll(".square");
+var messageDisplay = document.querySelector("#message");
 
 CorrectColorDisplay.textContent = correctColor;
-for (var i = 0; i <= square.length; i++) {
-	square[i].style.background = colorsList[i];
+for (var i = 0; i <= squares.length; i++) {
+	squares[i].style.background = colorsList[i];
 
-	square[i].addEventListener("click", function() {
+	squares[i].addEventListener("click", function() {
 		var selectedColor = this.style.background;
 		if (selectedColor === correctColor) {
-			alert("correct!");
+			messageDisplay.textContent = "Correct!"
+			changeColor(correctColor);
 		} else {
-			alert("wrong!");
+			this.style.background = "#232323";
+			messageDisplay.textContent = "Try Again";
 		}
 	});
+}
+
+function changeColor(color) {
+	for (var i = 0; i < squares.length; i++) {
+		squares[i].style.background = color
+	};
+	
 }
 
